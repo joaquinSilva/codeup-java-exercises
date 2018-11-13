@@ -17,6 +17,22 @@ public class RestaurantDish {
         return this.nameOfDish;
     }
 
+    public boolean isWouldRecommend() {
+        return this.wouldRecommend;
+    }
+
+    public boolean setWoulRecommend(boolean recommends) {
+        return this.wouldRecommend = recommends;
+    }
+
+    public int getCostInCents() {
+        return this.costInCents;
+    }
+
+    public int setCostInCents(int newPrice) {
+        return this.costInCents = newPrice;
+    }
+
 }
 
 //    Include an integer property called "costInCents"

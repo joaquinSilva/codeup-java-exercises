@@ -3,9 +3,9 @@ public class RestaurantTest {
 
         RestaurantDish dish = new RestaurantDish();
 
-//        dish.costInCents = 500;
-//        dish.nameOfDish = "Pad Thai";
-        dish.wouldRecommend = true;
+        dish.setCostInCents(500);
+        dish.setRestaurantDish("Pad Thai");
+        dish.setWoulRecommend(true);
 
 //        System.out.println(dish.costInCents);
 //        System.out.println(dish.nameOfDish);
