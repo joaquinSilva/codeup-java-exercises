@@ -12,9 +12,9 @@ public class MethodsExercises {
 //        int userInput = getInteger(12, 30);
 //        System.out.println(userInput);
 
-//        System.out.println(getFactorial());
+        System.out.println(getFactorial());
 
-        gambling();
+//        gambling();
 
     }
 
@@ -103,11 +103,11 @@ public class MethodsExercises {
 
     public static long getFactorial() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a whole number from 1 to 10!");
+        System.out.println("Enter a whole number from 1 to 25!");
         int userFactorial = sc.nextInt();
         long factorial = 1;
         System.out.format("You entered the number %d%n%n", userFactorial);
-        if (userFactorial < 1 || userFactorial > 10) {
+        if (userFactorial < 1 || userFactorial > 25) {
             return getFactorial();
         }
         System.out.println("Do you want to continue? [y/n]");
