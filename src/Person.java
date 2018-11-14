@@ -13,7 +13,7 @@ public class Person {
     }
     // prints a message to the console using the person's name
     public void sayHello() {
-        System.out.format("Greetings from Earth, %s!", this.name);
+        System.out.format("Greetings from Earth, %s!%n", this.name);
     }
 
     private Person(String newName) {
@@ -31,6 +31,23 @@ public class Person {
         joaquin.setName("Justin");
 
         joaquin.sayHello();
+
+//        Person person1 = new Person("John");
+//        Person person2 = new Person("John");
+//        System.out.println(person1.getName().equals(person2.getName()));
+//        System.out.println(person1 == person2);
+
+//        Person person1 = new Person("John");
+//        Person person2 = person1;
+//        System.out.println(person1 == person2);
+
+//        Person person1 = new Person("John");
+//        Person person2 = person1;
+//        System.out.println(person1.getName());
+//        System.out.println(person2.getName());
+//        person2.setName("Jane");
+//        System.out.println(person1.getName());
+//        System.out.println(person2.getName());
     }
 
 }
