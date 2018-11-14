@@ -16,7 +16,7 @@ public class Person {
         System.out.format("Greetings from Earth, %s!%n", this.name);
     }
 
-    private Person(String newName) {
+    public Person(String newName) {
         name = newName;
     }
 
