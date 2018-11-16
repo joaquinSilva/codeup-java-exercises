@@ -3,18 +3,19 @@ package shapes;
 public class Rectangle extends Quadrilateral implements Measurable {
 
     public Rectangle(int length, int width) {
-        this.length = length;
-        this.width = width;
+        super(length, width);
+//        this.length = length;
+//        this.width = width;
     }
 
     @Override
-    public int setLength(int num) {
-        return this.length = num;
+    public void setLength(int num) {
+        this.length = num;
     }
 
     @Override
-    public int setWidth(int num) {
-        return this.width = num;
+    public void setWidth(int num) {
+        this.width = num;
     }
 
     @Override
