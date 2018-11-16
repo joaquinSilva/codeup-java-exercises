@@ -15,23 +15,17 @@ public class ShapesTest {
 //        System.out.println(box2.getArea());
 //        System.out.println(box2.getPerimeter());
 
-        Measurable myShape = new Measurable() {
-            @Override
-            public double getPerimeter() {
-                return 0;
-            }
+        Measurable myShape;
 
-            @Override
-            public double getArea() {
-                return 0;
-            }
-        };
+        myShape = new Square(5);
+        System.out.println(myShape.getPerimeter());
+        System.out.println(((Square) myShape).getWidth());
+        myShape = new Rectangle(5, 4);
+        System.out.println(myShape.getPerimeter());
+        System.out.println(((Rectangle) myShape).getLength());
+        System.out.println(myShape.getArea());
 
-        Square newSquare = new Square();
-        Rectangle newRectangle = new Rectangle();
 
-        myShape = newSquare;
-        myShape = newRectangle;
 
     }
 
