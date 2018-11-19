@@ -65,6 +65,9 @@ public class GradesApplication {
         seeStudentInfo(nameOfHashMap, input);
     }
 
+//    with the seeAnotherStudent() method, if the user chooses to see another student, this method will pass
+//    further execution of the application to the seeStudentInfo() method. If the user does not choose to see another
+//    student, then the application ends and closes out here with a goodbye message.
     public static void seeAnotherStudent(HashMap<String, Student> nameOfHashMap, Input input) {
 
         System.out.println("\nWould you like to see another student [y / n]");
@@ -78,6 +81,9 @@ public class GradesApplication {
         }
     }
 
+//    Once the seeStudentInfo() method has either returned the info of a student to the user or detected that the user
+//    input does not match a student in the Hashmap, then this method will pass further execution of the application
+//    to the seeAnotherStudent() method.
     public static void seeStudentInfo(HashMap<String, Student> nameOfHashMap, Input input) {
         System.out.format("%n%nWhat student would you like to see information on?%n%n");
         String userInput = input.getString();
