@@ -47,7 +47,7 @@ public class Student {
 //
 //
 //        System.out.println(Joaquin.getGradeAverage());
-//
+
 //
 //
 //        Student Justin = new Student("Justin");

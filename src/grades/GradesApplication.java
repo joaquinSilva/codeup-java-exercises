@@ -1,15 +1,17 @@
 package grades;
 
 import java.util.HashMap;
+import util.Input;
+import java.util.Scanner;
 
 public class GradesApplication {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Input input = new Input(sc);
 
         HashMap<String, Student> students = getUsers();
-        userGreeting(students);
-
-
+        userGreeting(students, input);
     }
 
     public static HashMap<String, Student> getUsers() {
@@ -28,16 +30,16 @@ public class GradesApplication {
 
 
         Student Pibo = new Student("Pibo");
-        Pibo.addGrade(90);
-        Pibo.addGrade(100);
-        Pibo.addGrade(80);
-        Pibo.addGrade(75);
+        Pibo.addGrade(15);
+        Pibo.addGrade(30);
+        Pibo.addGrade(25);
+        Pibo.addGrade(55);
 
         Student Steven = new Student("Steven");
-        Pibo.addGrade(95);
-        Pibo.addGrade(85);
-        Pibo.addGrade(90);
-        Pibo.addGrade(100);
+        Steven.addGrade(95);
+        Steven.addGrade(85);
+        Steven.addGrade(90);
+        Steven.addGrade(100);
 
         HashMap<String, Student> students = new HashMap<>();
 
@@ -56,13 +58,40 @@ public class GradesApplication {
         }
     }
 
-    public static void userGreeting(HashMap<String, Student> nameOfHashMap) {
+    public static void userGreeting(HashMap<String, Student> nameOfHashMap, Input input) {
 //        https://stackoverflow.com/questions/5920135/printing-hashmap-in-java
         System.out.format("%nWelcome! %n%nHere are the github usernames of our students:%n%n");
         getCurrentUsers(nameOfHashMap);
-        System.out.format("%n%nWhat student would you like to see information on?%n%n%n");
-
+        seeStudentInfo(nameOfHashMap, input);
     }
+
+    public static void seeAnotherStudent(HashMap<String, Student> nameOfHashMap, Input input) {
+
+        System.out.println("\nWould you like to see another student [y / n]");
+        String userInput = input.getString();
+
+        if (userInput.equals("y")) {
+            getCurrentUsers(nameOfHashMap);
+            seeStudentInfo(nameOfHashMap, input);
+        } else if (userInput.equals("n")) {
+            System.out.println("Goodbye! Have a wonderful Thanksgiving!");
+        }
+    }
+
+    public static void seeStudentInfo(HashMap<String, Student> nameOfHashMap, Input input) {
+        System.out.format("%n%nWhat student would you like to see information on?%n%n");
+        String userInput = input.getString();
+        Student see = nameOfHashMap.get(userInput);
+        if (!nameOfHashMap.containsKey(userInput)) {
+            System.out.format("Sorry, no student found with the gihub username of %s.%n%n", userInput);
+            seeAnotherStudent(nameOfHashMap, input);
+        } else {
+            System.out.format("Name: %s - Github username: %s%nCurrentAverage: %f", see.getName(),
+                    userInput, see.getGradeAverage());
+            seeAnotherStudent(nameOfHashMap, input);
+        }
+    }
+
 
 
 }
