@@ -31,12 +31,11 @@ public class Student {
 
     // returns the average of the students grades
     public double getGradeAverage() {
-        double listSize = this.grades.size();
         double averageGrade = 0;
-        for (int i = 0; i < listSize; i++) {
+        for (int i = 0; i < this.grades.size(); i++) {
             averageGrade += (this.grades.get(i));
         }
-        return averageGrade / listSize;
+        return averageGrade / this.grades.size();
     }
 
     public static void main(String[] args) {

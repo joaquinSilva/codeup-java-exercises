@@ -4,13 +4,15 @@ import java.util.HashMap;
 
 public class GradesApplication {
 
-
-    
-
-
     public static void main(String[] args) {
 
-        HashMap<String, Student> students = new HashMap<>();
+        HashMap<String, Student> students = getUsers();
+        userGreeting(students);
+
+
+    }
+
+    public static HashMap<String, Student> getUsers() {
 
         Student Joaquin = new Student("Joaquin");
         Joaquin.addGrade(25);
@@ -37,14 +39,28 @@ public class GradesApplication {
         Pibo.addGrade(90);
         Pibo.addGrade(100);
 
+        HashMap<String, Student> students = new HashMap<>();
+
         students.put("SILVAj", Joaquin);
         students.put("jreich", Justin);
         students.put("piboIsAwesome", Pibo);
         students.put("JiuJitsuSteven", Steven);
+        
+        return students;
+    }
 
+    public static void getCurrentUsers(HashMap<String, Student> nameOfHashMap) {
+        for (String name: nameOfHashMap.keySet()){
+            String key = name;
+            System.out.format("|%s|   ", key);
+        }
+    }
 
-        System.out.println(students.get("SILVAj").getName());
-        System.out.println(students.get("SILVAj").getGrades());
+    public static void userGreeting(HashMap<String, Student> nameOfHashMap) {
+//        https://stackoverflow.com/questions/5920135/printing-hashmap-in-java
+        System.out.format("%nWelcome! %n%nHere are the github usernames of our students:%n%n");
+        getCurrentUsers(nameOfHashMap);
+        System.out.format("%n%nWhat student would you like to see information on?%n%n%n");
 
     }
 
