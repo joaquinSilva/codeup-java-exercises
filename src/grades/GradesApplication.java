@@ -45,7 +45,7 @@ public class GradesApplication {
         students.put("jreich", Justin);
         students.put("piboIsAwesome", Pibo);
         students.put("JiuJitsuSteven", Steven);
-        
+
         return students;
     }
 
