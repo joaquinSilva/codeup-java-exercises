@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class GradesApplication {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Input input = new Input(sc);
-
+//        Scanner sc = new Scanner(System.in);
+//        Input input = new Input(sc);
+        Input sc = new Input();
         HashMap<String, Student> students = getUsers();
-        userGreeting(students, input);
+        userGreeting(students, sc);
     }
 
     public static HashMap<String, Student> getUsers() {
@@ -58,24 +58,24 @@ public class GradesApplication {
         }
     }
 
-    public static void userGreeting(HashMap<String, Student> nameOfHashMap, Input input) {
+    public static void userGreeting(HashMap<String, Student> nameOfHashMap, Input sc) {
 //        https://stackoverflow.com/questions/5920135/printing-hashmap-in-java
         System.out.format("%nWelcome! %n%nHere are the github usernames of our students:%n%n");
         getCurrentUsers(nameOfHashMap);
-        seeStudentInfo(nameOfHashMap, input);
+        seeStudentInfo(nameOfHashMap, sc);
     }
 
 //    with the seeAnotherStudent() method, if the user chooses to see another student, this method will pass
 //    further execution of the application to the seeStudentInfo() method. If the user does not choose to see another
 //    student, then the application ends and closes out here with a goodbye message.
-    public static void seeAnotherStudent(HashMap<String, Student> nameOfHashMap, Input input) {
+    public static void seeAnotherStudent(HashMap<String, Student> nameOfHashMap, Input sc) {
 
         System.out.println("\nWould you like to see another student [y / n]");
-        String userInput = input.getString();
+        String userInput = sc.getString();
 
         if (userInput.equals("y")) {
             getCurrentUsers(nameOfHashMap);
-            seeStudentInfo(nameOfHashMap, input);
+            seeStudentInfo(nameOfHashMap, sc);
         } else if (userInput.equals("n")) {
             System.out.println("Goodbye! Have a wonderful Thanksgiving!");
         }
@@ -84,17 +84,17 @@ public class GradesApplication {
 //    Once the seeStudentInfo() method has either returned the info of a student to the user or detected that the user
 //    input does not match a student in the Hashmap, then this method will pass further execution of the application
 //    to the seeAnotherStudent() method.
-    public static void seeStudentInfo(HashMap<String, Student> nameOfHashMap, Input input) {
+    public static void seeStudentInfo(HashMap<String, Student> nameOfHashMap, Input sc) {
         System.out.format("%n%nWhat student would you like to see information on?%n%n");
-        String userInput = input.getString();
+        String userInput = sc.getString();
         Student see = nameOfHashMap.get(userInput);
         if (!nameOfHashMap.containsKey(userInput)) {
             System.out.format("Sorry, no student found with the gihub username of %s.%n%n", userInput);
-            seeAnotherStudent(nameOfHashMap, input);
+            seeAnotherStudent(nameOfHashMap, sc);
         } else {
             System.out.format("Name: %s - Github username: %s%nCurrentAverage: %f", see.getName(),
                     userInput, see.getGradeAverage());
-            seeAnotherStudent(nameOfHashMap, input);
+            seeAnotherStudent(nameOfHashMap, sc);
         }
     }
 

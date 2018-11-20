@@ -44,9 +44,10 @@ public class MoviesApplication {
 
     public static void useMenu() {
         System.out.format(showMenu());
-        Scanner sc = new Scanner(System.in);
-        Input input = new Input(sc);
-        int userInput = input.getInt();
+//        Scanner sc = new Scanner(System.in);
+//        Input input = new Input(sc);
+        Input sc = new Input();
+        int userInput = sc.getInt();
 
 
         if (userInput == 0) {
