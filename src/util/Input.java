@@ -23,7 +23,7 @@ public class Input {
 //    }
 
     public String getString() {
-        return sc.next();
+        return sc.nextLine();
     }
 
     public boolean yesNo() {
