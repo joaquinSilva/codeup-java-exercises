@@ -7,7 +7,12 @@ public class Input {
 
 
     private Scanner sc;
+
 //    private Scanner scanner = new Scanner(System.in);
+
+    public Input(Scanner sc) {
+        this.sc = sc;
+    }
 
 //    public Input() {
 //        scanner = new Scanner(System.in);
@@ -18,8 +23,11 @@ public class Input {
         sc = new Scanner(System.in).useDelimiter("\n");
     }
 
-//    public Input(Scanner sc) {
-//        this.sc = scanner;
+
+//    private Scanner scanner;
+//
+//    public Input(Scanner scanner) {
+//        this.scanner = scanner;
 //    }
 
     public String getString() {
